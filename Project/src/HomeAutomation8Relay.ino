@@ -12,7 +12,7 @@ byte subnet[] = {255, 255, 255, 0};
 IPAddress ip(192, 168, 1, 7);
 
 // Initialize the Ethernet server library with the IP address and port you want to use (80 for HTTP)
-EthernerServer server(80);
+EthernetServer server(80);
 
 #define RELAY_CHANNEL1 2
 #define RELAY_CHANNEL2 3
@@ -27,28 +27,28 @@ String readString;
 
 void setup() {
   // put your setup code here, to run once:
-    pinMode(RELAY_CHANNEL1, OUTPUT)
+    pinMode(RELAY_CHANNEL1, OUTPUT);
   digitalWrite(RELAY_CHANNEL1, HIGH); // switch on light 1
 
-    pinMode(RELAY_CHANNEL2, OUTPUT)
+    pinMode(RELAY_CHANNEL2, OUTPUT);
   digitalWrite(RELAY_CHANNEL2, HIGH); // switch on light 2
   
-    pinMode(RELAY_CHANNEL3, OUTPUT)
+    pinMode(RELAY_CHANNEL3, OUTPUT);
   digitalWrite(RELAY_CHANNEL3, HIGH); // switch on light 3
 
-    pinMode(RELAY_CHANNEL4, OUTPUT)
+    pinMode(RELAY_CHANNEL4, OUTPUT);
   digitalWrite(RELAY_CHANNEL4, HIGH); // switch on light 4
 
-    pinMode(RELAY_CHANNEL5, OUTPUT)
+    pinMode(RELAY_CHANNEL5, OUTPUT);
   digitalWrite(RELAY_CHANNEL5, HIGH); // switch on light 5
 
-    pinMode(RELAY_CHANNEL6, OUTPUT)
+    pinMode(RELAY_CHANNEL6, OUTPUT);
   digitalWrite(RELAY_CHANNEL6, HIGH); // switch on light 6
 
-    pinMode(RELAY_CHANNEL7, OUTPUT)
+    pinMode(RELAY_CHANNEL7, OUTPUT);
   digitalWrite(RELAY_CHANNEL7, HIGH); // switch on light 7
 
-    pinMode(RELAY_CHANNEL8, OUTPUT)
+    pinMode(RELAY_CHANNEL8, OUTPUT);
   digitalWrite(RELAY_CHANNEL8, HIGH); // switch on light 8
 
   // Open serial communications and wait for port to open
@@ -70,7 +70,7 @@ void loop() {
   // put your main code here, to run repeatedly:
 
   // Listen for incoming clients
-  EthernetClient client = server.avalable();
+  EthernetClient client = server.available();
 
   if(client){
     Serial.println("New client");
@@ -155,7 +155,7 @@ void loop() {
 
         if(readString.indexOf("?relay1off") >0){
           //checks for on
-            digitalWrite(RELAY_CH1, HIGH);    // set pin 4 high
+            digitalWrite(RELAY_CHANNEL1, HIGH);    // set pin 4 high
             //Serial.println("Led On");
       
             client.println("<link rel='apple-touch-icon' href='http://www.clker.com/cliparts/b/M/J/u/l/a/on-button-md.png' />");
@@ -165,7 +165,7 @@ void loop() {
         else{
           if(readString.indexOf("?relay1on") >0){
             //checks for off
-            digitalWrite(RELAY_CH1, LOW);    // set pin 4 low
+            digitalWrite(RELAY_CHANNEL1, LOW);    // set pin 4 low
             //Serial.println("Led Off");
             client.println("<link rel='apple-touch-icon' href='http://www.downloadclipart.net/medium/24595-off-button-clip-art.png' />");
 
@@ -177,7 +177,7 @@ void loop() {
           
         if(readString.indexOf("?relay2off") >0){
             //checks for on
-            digitalWrite(RELAY_CH2, HIGH);    // set pin 4 high
+            digitalWrite(RELAY_CHANNEL2, HIGH);    // set pin 4 high
             //Serial.println("Led On");
       
             client.println("<link rel='apple-touch-icon' href='http://www.clker.com/cliparts/b/M/J/u/l/a/on-button-md.png' />");
@@ -187,7 +187,7 @@ void loop() {
         else{
           if(readString.indexOf("?relay2on") >0){
             //checks for off
-            digitalWrite(RELAY_CH2, LOW);    // set pin 4 low
+            digitalWrite(RELAY_CHANNEL2, LOW);    // set pin 4 low
             //Serial.println("Led Off");
             client.println("<link rel='apple-touch-icon' href='http://www.downloadclipart.net/medium/24595-off-button-clip-art.png' />");
 
@@ -199,7 +199,7 @@ void loop() {
           
         if(readString.indexOf("?relay3off") >0){
             //checks for on
-            digitalWrite(RELAY_CH3, HIGH);    // set pin 4 high
+            digitalWrite(RELAY_CHANNEL3, HIGH);    // set pin 4 high
             //Serial.println("Led On");
       
             client.println("<link rel='apple-touch-icon' href='http://www.clker.com/cliparts/b/M/J/u/l/a/on-button-md.png' />");
@@ -209,7 +209,7 @@ void loop() {
         else{
           if(readString.indexOf("?relay3on") >0){
             //checks for off
-            digitalWrite(RELAY_CH3, LOW);    // set pin 4 low
+            digitalWrite(RELAY_CHANNEL3, LOW);    // set pin 4 low
             //Serial.println("Led Off");
             client.println("<link rel='apple-touch-icon' href='http://www.downloadclipart.net/medium/24595-off-button-clip-art.png' />");
 
@@ -220,7 +220,7 @@ void loop() {
         
         if(readString.indexOf("?relay4off") >0){
             //checks for on
-            digitalWrite(RELAY_CH4, HIGH);    // set pin 4 high
+            digitalWrite(RELAY_CHANNEL4, HIGH);    // set pin 4 high
             //Serial.println("Led On");
       
             client.println("<link rel='apple-touch-icon' href='http://www.clker.com/cliparts/b/M/J/u/l/a/on-button-md.png' />");
@@ -230,7 +230,7 @@ void loop() {
         else{
           if(readString.indexOf("?relay4on") >0){
             //checks for off
-            digitalWrite(RELAY_CH4, LOW);    // set pin 4 low
+            digitalWrite(RELAY_CHANNEL4, LOW);    // set pin 4 low
             //Serial.println("Led Off");
             client.println("<link rel='apple-touch-icon' href='http://www.downloadclipart.net/medium/24595-off-button-clip-art.png' />");
 
@@ -241,7 +241,7 @@ void loop() {
         
         if(readString.indexOf("?relay5off") >0){
             //checks for on
-            digitalWrite(RELAY_CH5, HIGH);    // set pin 4 high
+            digitalWrite(RELAY_CHANNEL5, HIGH);    // set pin 4 high
             //Serial.println("Led On");
       
             client.println("<link rel='apple-touch-icon' href='http://www.clker.com/cliparts/b/M/J/u/l/a/on-button-md.png' />");
@@ -251,7 +251,7 @@ void loop() {
         else{
           if(readString.indexOf("?relay5on") >0){
             //checks for off
-            digitalWrite(RELAY_CH5, LOW);    // set pin 4 low
+            digitalWrite(RELAY_CHANNEL5, LOW);    // set pin 4 low
             //Serial.println("Led Off");
             client.println("<link rel='apple-touch-icon' href='http://www.downloadclipart.net/medium/24595-off-button-clip-art.png' />");
 
@@ -263,7 +263,7 @@ void loop() {
           
         if(readString.indexOf("?relay6off") >0){
             //checks for on
-            digitalWrite(RELAY_CH6, HIGH);    // set pin 4 high
+            digitalWrite(RELAY_CHANNEL6, HIGH);    // set pin 4 high
             //Serial.println("Led On");
       
             client.println("<link rel='apple-touch-icon' href='http://www.clker.com/cliparts/b/M/J/u/l/a/on-button-md.png' />");
@@ -273,7 +273,7 @@ void loop() {
         else{
           if(readString.indexOf("?relay6on") >0){
             //checks for off
-            digitalWrite(RELAY_CH6, LOW);    // set pin 4 low
+            digitalWrite(RELAY_CHANNEL6, LOW);    // set pin 4 low
             //Serial.println("Led Off");
             client.println("<link rel='apple-touch-icon' href='http://www.downloadclipart.net/medium/24595-off-button-clip-art.png' />");
 
@@ -285,7 +285,7 @@ void loop() {
           
         if(readString.indexOf("?relay7off") >0){
             //checks for on
-            digitalWrite(RELAY_CH7, HIGH);    // set pin 4 high
+            digitalWrite(RELAY_CHANNEL7, HIGH);    // set pin 4 high
             //Serial.println("Led On");
       
             client.println("<link rel='apple-touch-icon' href='http://www.clker.com/cliparts/b/M/J/u/l/a/on-button-md.png' />");
@@ -295,7 +295,7 @@ void loop() {
         else{
           if(readString.indexOf("?relay7on") >0){
             //checks for off
-            digitalWrite(RELAY_CH7, LOW);    // set pin 4 low
+            digitalWrite(RELAY_CHANNEL7, LOW);    // set pin 4 low
             //Serial.println("Led Off");
             client.println("<link rel='apple-touch-icon' href='http://www.downloadclipart.net/medium/24595-off-button-clip-art.png' />");
 
@@ -306,7 +306,7 @@ void loop() {
         
         if(readString.indexOf("?relay8off") >0){
             //checks for on
-            digitalWrite(RELAY_CH8, HIGH);    // set pin 4 high
+            digitalWrite(RELAY_CHANNEL8, HIGH);    // set pin 4 high
             //Serial.println("Led On");
       
             client.println("<link rel='apple-touch-icon' href='http://www.clker.com/cliparts/b/M/J/u/l/a/on-button-md.png' />");
@@ -316,7 +316,7 @@ void loop() {
         else{
           if(readString.indexOf("?relay8on") >0){
             //checks for off
-            digitalWrite(RELAY_CH8, LOW);    // set pin 4 low
+            digitalWrite(RELAY_CHANNEL8, LOW);    // set pin 4 low
             //Serial.println("Led Off");
             client.println("<link rel='apple-touch-icon' href='http://www.downloadclipart.net/medium/24595-off-button-clip-art.png' />");
 
