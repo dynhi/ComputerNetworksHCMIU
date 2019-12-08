@@ -3,13 +3,13 @@
 
 // MAC address and IP address 
 // IP address in local network
-byte mac[] = {0xC6, 0x8C, 0x46, 0x7F, 0x29, 0xA3};
+byte mac[] = {0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED};
 
 // routers IP address
-byte gateway[] = {192, 168,1, 1};
+byte gateway[] = {192, 168, 1, 1};
 // subnet address
 byte subnet[] = {255, 255, 255, 0};
-IPAddress ip(192, 168, 1, 7);
+IPAddress ip(192, 168, 1, 120);
 
 // Initialize the Ethernet server library with the IP address and port you want to use (80 for HTTP)
 EthernetServer server(80);
@@ -18,10 +18,10 @@ EthernetServer server(80);
 #define RELAY_CHANNEL2 3
 #define RELAY_CHANNEL3 4
 #define RELAY_CHANNEL4 5
-#define RELAY_CHANNEL5 6
-#define RELAY_CHANNEL6 7
-#define RELAY_CHANNEL7 8
-#define RELAY_CHANNEL8 9
+#define RELAY_CHANNEL5 5
+#define RELAY_CHANNEL6 6
+#define RELAY_CHANNEL7 7
+#define RELAY_CHANNEL8 8
 
 String readString;
 
@@ -100,7 +100,7 @@ void loop() {
           client.println("<meta name='apple-mobile-web-app-capable' content='yes' />");
           client.println("<meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />");
           client.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"http://vandenbrande3ddesign.com/homeautomation.css\" />");
-          client.println("<meta http-equiv=\"refresh\" content=\"5;url=http://192.168.1.7/\"/>" );
+          client.println("<meta http-equiv=\"refresh\" content=\"5;url=http://192.168.1.120/\"/>" );
           client.println("</HEAD>");
           
           client.println("<body bgcolor=\"#333333\">");
@@ -354,3 +354,4 @@ void loop() {
   }//if(Client)
 
 } //loop
+
