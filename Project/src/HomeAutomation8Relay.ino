@@ -1,5 +1,6 @@
 #include <SPI.h>
 #include <Ethernet.h>  //Ethernet libraries
+#include<LiquidCrystal_I2C.h>
 
 // MAC address and IP address 
 // IP address in local network
@@ -18,12 +19,14 @@ EthernetServer server(80);
 #define RELAY_CHANNEL2 3
 #define RELAY_CHANNEL3 4
 #define RELAY_CHANNEL4 5
-#define RELAY_CHANNEL5 5
-#define RELAY_CHANNEL6 6
-#define RELAY_CHANNEL7 7
-#define RELAY_CHANNEL8 8
+#define RELAY_CHANNEL5 6
+#define RELAY_CHANNEL6 7
+#define RELAY_CHANNEL7 8
+#define RELAY_CHANNEL8 9
 
 String readString;
+
+LiquidCrystal_I2C lcd(0x3F,16,4);
 
 void setup() {
   // put your setup code here, to run once:
@@ -64,6 +67,13 @@ void setup() {
     Serial.print("Server is at ");
     Serial.println(Ethernet.localIP());
 
+  lcd.init();
+  lcd.begin(16,4);
+  lcd.backlight();
+  lcd.setCursor(5,0);
+  lcd.print("Hello Boss");
+  lcd.setCursor(4,1);
+  lcd.print("Welcome Home");
 }
 
 void loop() {
@@ -111,43 +121,43 @@ void loop() {
           
           /* Relay Control Code  */                
         
-          client.println("<a href=\"/?relay1off\"\"> <button style=\"width:360px;height:120px\"> <font size=\"7\"; color:red ;>Lamp 1 OFF </font> </button> </a> ");
-          client.println("<a href=\"/?relay1on\"\"> <button style=\"width:360px;height:120px\"> <font size=\"7\">Lamp 1 ON </font> </button> </a> <br />"); 
+          client.println("<a href=\"/?relay1off\"\"> <button style=\"width:360px;height:120px\"> <font size=\"7\"; color:red ;>Light 1 OFF </font> </button> </a> ");
+          client.println("<a href=\"/?relay1on\"\"> <button style=\"width:360px;height:120px\"> <font size=\"7\">Light 1 ON </font> </button> </a> <br />"); 
           client.println("<br />");
           
 
-          client.println("<a href=\"/?relay2off\"\"> <button style=\"width:360px;height:120px\"> <font size=\"7\">Lamp 2 OFF </font> </button> </a> ");
-          client.println("<a href=\"/?relay2on\"\"> <button style=\"width:360px;height:120px\"> <font size=\"7\">Lamp 2 ON </font> </button> </a> <br />"); 
+          client.println("<a href=\"/?relay2off\"\"> <button style=\"width:360px;height:120px\"> <font size=\"7\">Light 2 OFF </font> </button> </a> ");
+          client.println("<a href=\"/?relay2on\"\"> <button style=\"width:360px;height:120px\"> <font size=\"7\">Light 2 ON </font> </button> </a> <br />"); 
           client.println("<br />");
           
           
-          client.println("<a href=\"/?relay3off\"\"> <button style=\"width:360px;height:120px\"> <font size=\"7\">Lamp 3 OFF </font> </button> </a> ");
-          client.println("<a href=\"/?relay3on\"\"> <button style=\"width:360px;height:120px\"> <font size=\"7\">Lamp 3 ON </font> </button> </a> <br />"); 
+          client.println("<a href=\"/?relay3off\"\"> <button style=\"width:360px;height:120px\"> <font size=\"7\">Light 3 OFF </font> </button> </a> ");
+          client.println("<a href=\"/?relay3on\"\"> <button style=\"width:360px;height:120px\"> <font size=\"7\">Light 3 ON </font> </button> </a> <br />"); 
           client.println("<br />");
           
 
-          client.println("<a href=\"/?relay4off\"\"> <button style=\"width:360px;height:120px\"> <font size=\"7\">Lamp 4 OFF </font> </button> </a> ");
-          client.println("<a href=\"/?relay4on\"\"> <button style=\"width:360px;height:120px\"> <font size=\"7\">Lamp 4 ON </font> </button> </a> <br />"); 
+          client.println("<a href=\"/?relay4off\"\"> <button style=\"width:360px;height:120px\"> <font size=\"7\">Light 4 OFF </font> </button> </a> ");
+          client.println("<a href=\"/?relay4on\"\"> <button style=\"width:360px;height:120px\"> <font size=\"7\">Light 4 ON </font> </button> </a> <br />"); 
           client.println("<br />");
          
           
-          client.println("<a href=\"/?relay5off\"\"> <button style=\"width:360px;height:120px\"> <font size=\"7\">Lamp 5 OFF </font> </button> </a> ");
-          client.println("<a href=\"/?relay5on\"\"><button style=\"width:360px;height:120px\"> <font size=\"7\">Lamp 5 ON </font> </button> </a> <br />"); 
+          client.println("<a href=\"/?relay5off\"\"> <button style=\"width:360px;height:120px\"> <font size=\"7\">Light 5 OFF </font> </button> </a> ");
+          client.println("<a href=\"/?relay5on\"\"><button style=\"width:360px;height:120px\"> <font size=\"7\">Light 5 ON </font> </button> </a> <br />"); 
           client.println("<br />");        
 
 
-          client.println("<a href=\"/?relay6off\"\"><button style=\"width:360px;height:120px\"> <font size=\"7\">Lamp 6 OFF </font> </button> </a> ");
-          client.println("<a href=\"/?relay6on\"\"><button style=\"width:360px;height:120px\"> <font size=\"7\">Lamp 6 ON </font> </button> </a> <br />"); 
+          client.println("<a href=\"/?relay6off\"\"><button style=\"width:360px;height:120px\"> <font size=\"7\">Light 6 OFF </font> </button> </a> ");
+          client.println("<a href=\"/?relay6on\"\"><button style=\"width:360px;height:120px\"> <font size=\"7\">Light 6 ON </font> </button> </a> <br />"); 
           client.println("<br />");
          
           
-          client.println("<a href=\"/?relay7off\"\"><button style=\"width:360px;height:120px\"> <font size=\"7\">Lamp 7 OFF </font> </button> </a> ");
-          client.println("<a href=\"/?relay7on\"\"><button style=\"width:360px;height:120px\"> <font size=\"7\">Lamp 7 ON </font> </button> </a> <br />");  
+          client.println("<a href=\"/?relay7off\"\"><button style=\"width:360px;height:120px\"> <font size=\"7\">Light 7 OFF </font> </button> </a> ");
+          client.println("<a href=\"/?relay7on\"\"><button style=\"width:360px;height:120px\"> <font size=\"7\">Light 7 ON </font> </button> </a> <br />");  
           client.println("<br />");
           
 
-          client.println("<a href=\"/?relay8off\"\"><button style=\"width:360px;height:120px\"> <font size=\"7\">Lamp 8 OFF </font> </button> </a> ");
-          client.println("<a href=\"/?relay8on\"\"><button style=\"width:360px;height:120px\"> <font size=\"7\">Lamp 8 ON </font> </button> </a> <br />"); 
+          client.println("<a href=\"/?relay8off\"\"><button style=\"width:360px;height:120px\"> <font size=\"7\">Light 8 OFF </font> </button> </a> ");
+          client.println("<a href=\"/?relay8on\"\"><button style=\"width:360px;height:120px\"> <font size=\"7\">Light 8 ON </font> </button> </a> <br />"); 
           client.println("<br />");
          
           
@@ -157,6 +167,8 @@ void loop() {
           //checks for on
             digitalWrite(RELAY_CHANNEL1, HIGH);    // set pin 4 high
             //Serial.println("Led On");
+            //lcd.setCursor(0, 0);
+            //lcd.print("Linght 1: ON");
       
             client.println("<link rel='apple-touch-icon' href='http://www.clker.com/cliparts/b/M/J/u/l/a/on-button-md.png' />");
             //client.println("Light 1 Is On");
@@ -354,4 +366,3 @@ void loop() {
   }//if(Client)
 
 } //loop
-
